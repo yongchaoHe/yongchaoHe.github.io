@@ -3,11 +3,11 @@
 Gem::Specification.new do |spec|
   spec.name          = "not-pure-poole"
   spec.version       = "0.1.0"
-  spec.authors       = ["Jyche"]
-  spec.email         = ["Jyche@gmail.com"]
+  spec.authors       = ["yongchaoHe"]
+  spec.email         = ["yongchao-he@outlook.com"]
 
   spec.summary       = "AAAAAAAAA"
-  spec.homepage      = "https://github.com/Jyche/Jyche.github.io"
+  spec.homepage      = "https://github.com/yongchaoHe/yongchaoHe.github.io"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }

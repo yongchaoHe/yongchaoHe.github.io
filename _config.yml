@@ -1,7 +1,7 @@
 # Setup
-title: Jyche 
+title: yongchaoHe 
 description: Hi, there 
-url: https://Jyche.github.io
+url: https://yongchaoHe.github.io
 avatar: /avatar.jpeg
 paginate: 5
 permalink: pretty
@@ -36,7 +36,7 @@ social:
   name: XXX XX
   links:
     - https://twitter.com/
-    - https://github.com/Jyche
+    - https://github.com/yongchaoHe
 google_site_verification: xxxxx
 lang: en
 
@@ -54,6 +54,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Jyche 
-  url: https://github.com/Jyche/
-  email: Jyche@gmail.com
+  name: yongchaoHe 
+  url: https://github.com/yongchaoHe/
+  email: yongchaoHe@gmail.com
