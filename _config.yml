@@ -15,8 +15,6 @@ timezone:
 # ↓ --------------------------
 
 title: Yongchao He # the main title
-copyright:
-  enable: false
 
 tagline: Cats, code, and chaos # it will display as the subtitle
 
