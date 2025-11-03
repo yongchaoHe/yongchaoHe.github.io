@@ -15,6 +15,9 @@ order: 4
   Siran Liu, Yang Ye, Qianchao Zhu, Zheng Cao, Yongchao He
 
 #### LLM Training
+* **MegatronApp: Efficient and Comprehensive Management on Distributed LLM Training**, [pdf](https://arxiv.org/pdf/2507.19845)
+
+  Bohan Zhao, Guang Yang, Shuo Chen, Ruitao Liu, Tingrui Zhang, Yongchao He, Wei Xu
 
 #### Systems and Infrastructure
 * **A generic service to provide in-network aggregation for key-value streams**, ASPLOS'23 (<strong style="color:#e63946;">Distinguished Paper Award</strong>), [pdf](https://dl.acm.org/doi/abs/10.1145/3575693.3575708)
