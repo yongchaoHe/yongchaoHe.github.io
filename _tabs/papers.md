@@ -1,5 +1,5 @@
 ---
-layout: categories
+layout: page
 icon: fas fa-star
 order: 4
 title: Research Areas
