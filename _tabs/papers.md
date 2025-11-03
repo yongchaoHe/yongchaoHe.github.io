@@ -2,7 +2,6 @@
 layout: page
 icon: fas fa-star
 order: 4
-title: Research Areas
 ---
 
 #### LLM Serving
@@ -11,3 +10,6 @@ title: Research Areas
 
 #### Systems and Infrastructure
 * **A generic service to provide in-network aggregation for key-value streams**, ASPLOS'23 (<strong style="color:#e63946;">Distinguished Paper Award</strong>), [pdf](https://dl.acm.org/doi/abs/10.1145/3575693.3575708)
+  Yongchao He, Wenfei Wu, Yanfang Le, Ming Liu, ChonLam Lao
+
+[Full List](https://scholar.google.com/citations?user=1vKOfVkAAAAJ&hl=en&oi=ao)
