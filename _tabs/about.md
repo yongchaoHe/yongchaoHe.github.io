@@ -17,5 +17,3 @@ Now, I lead a research & develop group focused on AI infra at a startup — expl
 
 Occasional cat wrangler, full-time system tinkerer.
 Just another small node in the AI era.
-
-Cats. Code. Chaos. Occasionally, research.
