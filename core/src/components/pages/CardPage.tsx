@@ -30,11 +30,33 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
                     >
                         <div className="flex justify-between items-start mb-2">
                             <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary`}>{item.title}</h3>
-                            {item.date && (
-                                <span className="text-sm text-neutral-500 font-medium bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded">
-                                    {item.date}
-                                </span>
-                            )}
+                            <div className="flex items-center gap-x-3">
+                                {item.link && (
+                                <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-accent hover:underline text-sm"
+                                >
+                                    Source Code
+                                </a>
+                                )}
+                                {item.paper && (
+                                <a
+                                    href={item.paper}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-accent hover:underline text-sm"
+                                >
+                                    Technical Report
+                                </a>
+                                )}
+                                {item.date && (
+                                    <span className="text-sm text-neutral-500 font-medium bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded">
+                                        {item.date}
+                                    </span>
+                                )}
+                            </div>
                         </div>
                         {item.subtitle && (
                             <p className={`${embedded ? "text-sm" : "text-base"} text-accent font-medium mb-3`}>{item.subtitle}</p>

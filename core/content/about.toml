@@ -4,7 +4,9 @@ title = "About"
 [profile]
 research_interests = [
   "AI Infrastructure",
-  "Distributed Computing"
+  "Reinforcement Learning",
+  "Distributed Computing",
+  "Cat Taming"
 ]
 
 [[sections]]

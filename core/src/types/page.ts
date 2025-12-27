@@ -22,6 +22,7 @@ export interface CardItem {
     tags?: string[];
     link?: string;
     image?: string;
+    paper?: string;
 }
 
 export interface CardPageConfig extends BasePageConfig {

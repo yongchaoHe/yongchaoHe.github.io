@@ -2,7 +2,7 @@
 title = "Yongchao He"
 description = "PhD student at the University of Example."
 favicon = "/favicon.svg"
-last_updated = "November 18, 2025"
+last_updated = "Dec 27, 2025"
 
 [author]
 name = "Yongchao He"
@@ -45,6 +45,12 @@ target = "publications"
 href = "/publications"
 
 [[navigation]]
+title = "Projects"
+type = "page"
+target = "projects"
+href = "/projects"
+
+[[navigation]]
 title = "Awards"
 type = "page"
 target = "awards"
@@ -56,8 +62,8 @@ type = "page"
 target = "services"
 href = "/services"
 
-[[navigation]]
-title = "CV"
-type = "page"
-target = "cv"
-href = "/cv"
+# [[navigation]]
+# title = "CV"
+# type = "page"
+# target = "cv"
+# href = "/cv"

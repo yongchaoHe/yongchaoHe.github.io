@@ -1,0 +1,11 @@
+type = "card"
+title = "Projects"
+description = ""
+
+[[items]]
+title = "MegatronAPP"
+subtitle = "Toolchain built around Megatron-LM for Distributed Training"
+date = "2025"
+link = "https://github.com/OpenSQZ/MegatronApp"
+paper = "https://arxiv.org/abs/2507.19845"
+content = "MegatronApp is a toolchain built around the Megatron-LM training framework, designed to give practitioners a suite of value-added capabilities such as performance tuning, slow-node detection, and training-process visualization."
