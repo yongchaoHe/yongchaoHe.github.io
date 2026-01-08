@@ -3,9 +3,8 @@ title = "About"
 
 [profile]
 research_interests = [
-  "AI Infrastructure",
-  "Reinforcement Learning",
-  "Distributed Computing",
+  "LLM Inference",
+  "LLM Training",
   "Cat Taming"
 ]
 

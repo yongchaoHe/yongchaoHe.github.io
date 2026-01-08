@@ -1,4 +1,18 @@
+[[news]]
+date = "2024-12"
+content = "I joined ScitiX AI as a founding member. 🚀"
 
+[[news]]
+date = "2024-06"
+content = "I founded and lead the AI Infrastructure R&D group at UbiQuant. ⚙️"
+
+[[news]]
+date = "2024-03"
+content = "Selected as the first member of UbiQuant’s CTO List, a high-potential technical leadership program. 🏆"
+
+[[news]]
+date = "2023-07"
+content = "I started my position at UbiQuant under the Wutong Program (梧桐计划), a premier Technical Talent Program. 🚀"
 
 [[news]]
 date = "2023-06"
@@ -6,4 +20,4 @@ content = "I earned my Ph.D. in Computer Science 🎓"
 
 [[news]]
 date = "2023-03"
-content = "Our paper titled 'A Generic Service to Provide In-Network Aggregation for Key-Value Streams' received the Distinguished Paper Award at ASPLOS 2023 🏆"
+content = "Our paper titled 'A Generic Service to Provide In-Network Aggregation for Key-Value Streams' received the Distinguished Paper Award at ASPLOS 2023. 🏆"
