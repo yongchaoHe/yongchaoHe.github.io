@@ -8,7 +8,7 @@
       primaryClass={cs.DC},
       abstract = {Efficiently harnessing GPU compute is critical to improving user experience and reducing operational costs in large language model (LLM) services. However, current inference engine schedulers overlook the attention backend's sensitivity to request-length heterogeneity within a batch. As state-of-the-art models now support context windows exceeding 128K tokens, this once-tolerable inefficiency has escalated into a primary system bottleneck, causing severe performance degradation through GPU underutilization and increased latency. We present L4, a runtime system that dynamically reschedules requests across multiple instances serving the same LLM to mitigate per-instance length heterogeneity. L4 partitions these instances into length-specialized groups, each handling requests within a designated length range, naturally forming a pipeline as requests flow through them. L4 devises a dynamic programming algorithm to efficiently find the stage partition with the best QoE, employs runtime range refinement together with decentralized load (re)balance both across and within groups, achieving a balanced and efficient multi-instance service. Our evaluation shows that, under the same configuration, L4 reduces end-to-end latency by up to 67% and tail latency by up to 69%, while improving overall system throughput by up to 2.89 times compared to the state-of-the-art multi-instance scheduling systems.},
       url={https://arxiv.org/abs/2512.19179}, 
-      preview={L4.pdf}
+      preview={L4.png}
 }
 @misc{liu2025unifiedsparseattentionmultigranularity,
       selected={true},
@@ -20,7 +20,7 @@
       primaryClass={cs.CL},
       abstract={Efficient long-context understanding and reasoning are increasingly vital for large language model (LLM) applications such as multi-turn dialogue and program analysis. However, the core self-attention mechanism scales quadratically with sequence length, creating a fundamental computational bottleneck. Existing sparse attention methods alleviate this issue but face trade-offs: training-based methods are costly and cannot be directly applied as acceleration plugins for other models, while inference-time methods often compromise efficiency or cross-modal generality. To address these limitations, we present UniSparse, a unified mechanism that introduces the notion of composite tokens--compact representations that aggregate multi-granularity contextual information. Building on this abstraction, UniSparse dynamically constructs sparse attention through multi-granularity compression and block-level selection, enabling efficient and hardware-friendly execution on GPU. Across multiple modalities and tasks ranging from synthetic benchmarks to real-world applications, UniSparse consistently surpasses state-of-the-art sparse attention methods (e.g., MInference, XAttention, FlexPrefill) in both accuracy and efficiency, achieving ≥ 99% of full-attention accuracy and up to 2.61× faster attention computation than FlashAttention.},
       url={https://arxiv.org/abs/2512.14082}, 
-      preview={Unisparse.pdf}
+      preview={Unisparse.png}
 }
 @misc{zhao2025simpledisaggregatingsamplinggpu,
       title={SIMPLE: Disaggregating Sampling from GPU Inference into a Decision Plane for Faster Distributed LLM Serving}, 
@@ -31,7 +31,7 @@
       primaryClass={cs.DC},
       abstract={As large language models (LLMs) scale out with tensor parallelism (TP) and pipeline parallelism (PP) and production stacks have aggressively optimized the data plane (attention/GEMM and KV cache), sampling, the decision plane that turns logits into tokens, becomes a new bottleneck. This creates a structural holdout: sampling neither expands with TP nor balances across PP stages, so its share of iteration time grows as GPUs get faster and it caps pipeline frequency at the last stage. We present SIMPLE, a stage-agnostic, sequence-parallel, overlappable decision plane that disaggregates sampling into a CPU-side service and shrinks its runtime footprint back to a minor, hidden role. SIMPLE combines: (1) sequence-parallel sampling, which shards work along the batch dimension and removes vocabulary-axis collectives; (2) a CPU-based algorithm with column-wise penalties and truncation-first filtering to realize single-pass, linear-time kernels; and (3) speculative hot-vocab sampling (SHVS), which samples on a small hot set with rejection-correctness and uses a simple sizing model to choose the hot-vocab size that maximizes throughput. In evaluation, SIMPLE improves end-to-end throughput by up to 96% and reduces P95 latency by 20-65%. Crucially, SIMPLE requires no user-side code changes and composes with existing data-plane optimizations, unlocking scaling benefits that compound with future GPU generations.},
       url={https://arxiv.org/abs/2512.00719}, 
-      preview={simple.pdf}
+      preview={simple.png}
 }
 @misc{zhao2025megatronappefficientcomprehensivemanagement,
       title={MegatronApp: Efficient and Comprehensive Management on Distributed LLM Training}, 
@@ -53,7 +53,7 @@
       primaryClass={cs.DC},
       abstract={As inference workloads for large language models (LLMs) scale to meet growing user demand, pipeline parallelism (PP) has become a widely adopted strategy for multi-GPU deployment, particularly in cross-node setups, to improve key-value (KV) cache capacity and inference throughput. However, PP suffers from inherent inefficiencies caused by three types of execution bubbles-load-imbalance, intra-stage, and inter-stage-which limit pipeline saturation. We present SiPipe, a heterogeneous pipeline design that improves throughput by leveraging underutilized CPU resources to offload auxiliary computation and communication. SiPipe incorporates three key techniques-CPU sampling, a token-safe execution model, and structure-aware transmission-to mitigate pipeline bubbles and improve execution efficiency. Across diverse LLMs, SiPipe achieves up to 2.1 times higher throughput, 43% lower per-token latency, and up to 23% higher average GPU utilization compared to the state-of-the-art vLLM under the same PP configuration, demonstrating its generality across LLMs and deployment scenarios.},
       url={https://arxiv.org/abs/2506.22033}, 
-      preview={sipipe.pdf}
+      preview={sipipe.png}
 }
 @misc{liu2025heterospecleveragingcontextualheterogeneity,
       selected={true},
@@ -65,7 +65,7 @@
       primaryClass={cs.CL},
       abstract={Autoregressive decoding inherently limits the inference throughput of Large Language Model (LLM) due to its sequential dependency. Speculative decoding mitigates this by verifying multiple predicted tokens in parallel, but its efficiency remains constrained by what we identify as verification heterogeneity -- the uneven difficulty of verifying different speculative candidates. In practice, a small subset of high-confidence predictions accounts for most successful verifications, yet existing methods treat all candidates uniformly, leading to redundant computation. We present HeteroSpec, a heterogeneity-adaptive speculative decoding framework that allocates verification effort in proportion to candidate uncertainty. HeteroSpec estimates verification complexity using a lightweight entropy-based quantifier, partitions candidates via a data-driven stratification policy, and dynamically tunes speculative depth and pruning thresholds through coordinated optimization. Across five benchmarks and four LLMs, HeteroSpec delivers an average 4.24× decoding speedup over state-of-the-art methods such as EAGLE-3, while preserving exact output distributions. Crucially, HeteroSpec requires no model retraining and remains compatible with other inference optimizations, making it a practical direction for improving speculative decoding efficiency.},
       url={https://arxiv.org/abs/2505.13254}, 
-      preview={heterospec.pdf}
+      preview={heterospec.png}
 }
 @INPROCEEDINGS{10188742,
       author={Dou, Songshi and He, Yongchao and Liu, Sen and Wu, Wenfei and Guo, Zehua},
@@ -96,7 +96,7 @@
       keywords = {Big Data, In-Network Aggregation, Key-Value, P4},
       location = {Vancouver, BC, Canada},
       series = {ASPLOS 2023},
-      preview={ASK.pdf}
+      preview={ASK.png}
 }
 @INPROCEEDINGS{9812884,
       author={He, Yongchao and Wu, Wenfei},
@@ -133,7 +133,7 @@
       keywords={Limiting;Scalability;Conferences;Prototypes;Production;Channel allocation;Approximation algorithms},
       doi={10.1109/INFOCOM42981.2021.9488773},
       url={https://dl.acm.org/doi/abs/10.1109/INFOCOM42981.2021.9488773},
-      preview={switchrl.pdf}
+      preview={switchrl.png}
 }
 @INPROCEEDINGS{9488734,
       author={Huang, Hongyi and Wu, Wenfei and He, Yongchao and Deng, Bangwen and Zhang, Ying and Xiong, Yongqiang and Chen, Guo and Cui, Yong and Cheng, Peng},
@@ -146,7 +146,7 @@
       keywords={Biological system modeling;Linux;Conferences;Computational modeling;Ecosystems;Prototypes;Graphics processing units},
       doi={10.1109/INFOCOM42981.2021.9488734},
       url={https://dl.acm.org/doi/10.1145/3342280.3342342},
-      preview={nfd.pdf}
+      preview={nfd.png}
 }
 @inproceedings{10.1145/3342280.3342344,
       author = {He, Yongchao and Wu, Wenfei},
