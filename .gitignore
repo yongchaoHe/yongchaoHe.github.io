@@ -26,4 +26,5 @@ package-lock.json
 _sass/dist
 assets/js/dist
 
-core/.next
+core/.next/
+core/out/
