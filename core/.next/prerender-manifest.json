@@ -1,6 +1,30 @@
 {
   "version": 4,
   "routes": {
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/awards": {
       "experimentalBypassFor": [
         {
@@ -96,30 +120,6 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
-    },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
     }
   },
   "dynamicRoutes": {
@@ -151,8 +151,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "e13c5a70a43a2ef280a1d25c04feb71f",
-    "previewModeSigningKey": "addb4a9843e631fc17ecb68f59d61f69fb5af0d3fed2b640e37e7ebd6f4b03f6",
-    "previewModeEncryptionKey": "da27ddabef6cfc02c004a4d5b64abade816f407bbbfa52202527b6e8fbaa4d74"
+    "previewModeId": "6f35f8f2c5f882595a0598e19c4de541",
+    "previewModeSigningKey": "aacd6f7718c20d41c988fed5969dcf5af42bdf97fd63db8d56427fc0089dd46a",
+    "previewModeEncryptionKey": "079d191054c3c0c6179b5998a8a9c39b1e3309c6f2083a1892e270e59ef0e11a"
   }
 }
