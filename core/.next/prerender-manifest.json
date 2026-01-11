@@ -1,30 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/awards": {
       "experimentalBypassFor": [
         {
@@ -120,6 +96,30 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {
@@ -151,8 +151,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "931f3e59eb8cc9e129d8946224dd4383",
-    "previewModeSigningKey": "710a4d9a886407b93bd0a924a733d433f2b9dca9110c6db87f1800babf144cb4",
-    "previewModeEncryptionKey": "3cff9eb56d72ad057db845f0acb6c9406cb3e31ec88fb209b465501b980e0717"
+    "previewModeId": "e13c5a70a43a2ef280a1d25c04feb71f",
+    "previewModeSigningKey": "addb4a9843e631fc17ecb68f59d61f69fb5af0d3fed2b640e37e7ebd6f4b03f6",
+    "previewModeEncryptionKey": "da27ddabef6cfc02c004a4d5b64abade816f407bbbfa52202527b6e8fbaa4d74"
   }
 }

@@ -3,9 +3,10 @@ title = "About"
 
 [profile]
 research_interests = [
-  "LLM Inference",
-  "LLM Training",
-  "Cat Taming"
+  "LLM Systems (Inference & Training)",
+  "Systems Architecture & Optimization",
+  "Cat Taming",
+  "Cooking"
 ]
 
 [[sections]]
