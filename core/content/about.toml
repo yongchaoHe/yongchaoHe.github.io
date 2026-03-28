@@ -3,8 +3,11 @@ title = "About"
 
 [profile]
 research_interests = [
-  "LLM Systems (Inference & Training)",
-  "Systems Architecture & Optimization",
+  "AI Infra",
+  "Distributed System",
+  "High-Performance Computing",
+  "Data Center Network",
+  "High-Performance Network",
   "Cat Taming",
   "Cooking"
 ]

@@ -3,7 +3,7 @@ import { getMarkdownContent, getBibtexContent, getTomlContent, getPageConfig } f
 import { parseBibTeX } from '@/lib/bibtexParser';
 import Profile from '@/components/home/Profile';
 import About from '@/components/home/About';
-import SelectedPublications from '@/components/home/SelectedPublications';
+// import SelectedPublications from '@/components/home/SelectedPublications';
 import News, { NewsItem } from '@/components/home/News';
 import PublicationsList from '@/components/publications/PublicationsList';
 import TextPage from '@/components/pages/TextPage';
@@ -156,15 +156,15 @@ export default function Home() {
                         title={section.title}
                       />
                     );
-                  case 'publications':
-                    return (
-                      <SelectedPublications
-                        key={section.id}
-                        publications={section.publications || []}
-                        title={section.title}
-                        enableOnePageMode={enableOnePageMode}
-                      />
-                    );
+                  // case 'publications':
+                  //   return (
+                  //     <SelectedPublications
+                  //       key={section.id}
+                  //       publications={section.publications || []}
+                  //       title={section.title}
+                  //       enableOnePageMode={enableOnePageMode}
+                  //     />
+                  //   );
                   case 'list':
                     return (
                       <News
