@@ -547,7 +547,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.05 * index }}
-                        className="relative pl-12 pb-4 group"
+                        className="relative pl-12 pb-5 group"
                     >
                         {/* dot */}
                         <div className="absolute left-2 top-2 w-4 h-4 rounded-full bg-accent border-2 border-white dark:border-neutral-900 shadow-[0_0_8px_2px_rgba(0,132,255,0.6)]" />
