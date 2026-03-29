@@ -1,13 +1,13 @@
 @inproceedings{10.1145/3575693.3575708,
+      selected={true},
       author = {He, Yongchao and Zhang, Guangyan and Cao, Zane and Wu, Wenfei},
       title = {Umap: Revisiting Memory-mapped I/O on Distributed File Systems  for Efficient Matrix Access},
       publisher = {Association for Computing Machinery},
       url = {},
       doi = {},
       abstract = {Our production experience in large-scale data-processing pipelines shows that, despite its attractive programming model, memory-mapped I/O (\mmap) on distributed file systems (DFS) exhibits severe operational pathologies---livelocks during write-heavy phases, chronically low multi-threaded throughput, and high memory footprints that may trigger out-of-memory kills in containerized environments. Our measurements further show that mmap-IO on DFS is 3×--10× slower than on local file systems (LFS) for matrix random-access workloads, primarily because page-granularity network I/O underutilizes high-speed networks and deferred write-back behavior incurs expensive distributed flushes and metadata operations. We present umap, a DFS-agnostic runtime that delivers near-in-memory matrix-access performance on DFS via network-efficient communication, a concurrency-aware cache protocol with linear scalability, and lazy-expansion cache management. Deployed in production for over 18 months, umap has eliminated livelocks and out-of-memory-induced job failures while improving throughput by up to 6.7× across diverse matrix-access workloads. Our experience shows that rethinking mmap-IO's interaction with DFS is essential for robust, predictable performance in modern large-scale clusters.},
-      booktitle = {Proceedings of the 20th USENIX Symposium on Operating Systems Design and Implementation (OSDI '26)},
-      series = {OSDI 2026},
-      selected={true}
+      booktitle = {Proceedings of the 20th USENIX Symposium on Operating Systems Design and Implementation (OSDI'26)},
+      series = {OSDI 2026}
 }
 @article{liu2026confspec,
       title={ConfSpec: Efficient Step-Level Speculative Reasoning via Confidence-Gated Verification},

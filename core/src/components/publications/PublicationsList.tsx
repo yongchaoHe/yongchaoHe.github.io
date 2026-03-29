@@ -554,11 +554,16 @@ export default function PublicationsList({ config, publications, embedded = fals
 
                         {/* content */}
                         <div className="p-2 -ml-4 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                            
-                            {/* Title */}
-                            <h3 className="text-xl font-semibold text-primary mb-1">
-                                {pub.title}
-                            </h3>
+                
+                            {/* Title + Year */}
+                            <div className="flex justify-between items-baseline mb-1">
+                                <h3 className="text-lg font-semibold text-primary">
+                                    {pub.title}
+                                </h3>
+                                <span className="text-sm text-neutral-500">
+                                    {pub.year}
+                                </span>
+                            </div>
 
                             {/* Authors */}
                             <p className="text-sm text-neutral-600 mb-1">
@@ -574,7 +579,7 @@ export default function PublicationsList({ config, publications, embedded = fals
 
                             {/* Venue + Year */}
                             <p className="text-sm text-neutral-500 mb-2">
-                                {pub.journal || pub.conference} · {pub.year}
+                                {pub.journal || pub.conference}
                             </p>
 
                             {/* Preview */}

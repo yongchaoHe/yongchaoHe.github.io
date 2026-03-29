@@ -131,18 +131,23 @@ export default function CardPage({
                         {/* content */}
                         <div className="hover:bg-neutral-50 dark:hover:bg-neutral-900/50 rounded-lg p-2 -ml-4 transition-colors">
                             
-                            {/* Title */}
-                            <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-1`}>
-                                {item.title}
-                            </h3>
+                            {/* Title + Year */}
+                            <div className="flex justify-between items-baseline mb-1">
+                                <h3 className="text-lg font-semibold text-primary">
+                                    {item.title}
+                                </h3>
+                                <span className="text-sm text-neutral-500">
+                                    {item.date}
+                                </span>
+                            </div>
 
                             {/* Meta */}
                             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2 text-sm text-neutral-500">
-                                {item.date && (
+                                {/* {item.date && (
                                     <span className="text-xs text-neutral-400 uppercase tracking-wide">
                                         {item.date}
                                     </span>
-                                )}
+                                )} */}
 
                                 {item.link && (
                                     <a
