@@ -417,7 +417,7 @@ export default function PublicationsList({ config, publications, embedded = fals
         >
             {/* Header */}
             <div className="mb-8">
-                <h1 className={`${embedded ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary mb-4`}>
+                <h1 className={`${embedded ? "text-xl" : "text-3xl"} font-serif font-bold text-primary mb-4`}>
                     {config.title}
                 </h1>
                 {config.description && (
@@ -547,13 +547,13 @@ export default function PublicationsList({ config, publications, embedded = fals
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.05 * index }}
-                        className="relative pl-12 pb-10 group"
+                        className="relative pl-12 pb-4 group"
                     >
                         {/* dot */}
                         <div className="absolute left-2 top-2 w-4 h-4 rounded-full bg-accent border-2 border-white dark:border-neutral-900 shadow-[0_0_8px_2px_rgba(0,132,255,0.6)]" />
 
                         {/* content */}
-                        <div className="p-4 -ml-4 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
+                        <div className="p-2 -ml-4 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
                             
                             {/* Title */}
                             <h3 className="text-xl font-semibold text-primary mb-1">
