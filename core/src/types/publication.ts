@@ -22,6 +22,7 @@ export interface Publication {
   year: number;
   month?: string;
   publishedDate?: string;
+  publishedAt?: string;
   doi?: string;
   arxivId?: string;
   pmid?: string;

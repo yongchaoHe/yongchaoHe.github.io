@@ -375,6 +375,24 @@ interface PublicationsListProps {
     embedded?: boolean;
 }
 
+function getVenueColor(venue?: string) {
+  if (!venue) return "bg-neutral-100 text-neutral-700";
+  const v = venue.toLowerCase();
+  if (v.includes('preprint')) {
+    return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
+  }
+  if (
+    v.includes('neurips') || v.includes('nips') ||
+    v.includes('icml') || v.includes('iclr') ||
+    v.includes('aaai') || v.includes('ijcai') || v.includes('kdd') ||
+    v.includes('acl') || v.includes('emnlp') || v.includes('naacl') ||
+    v.includes('cvpr') || v.includes('iccv') || v.includes('eccv')
+  ) {
+    return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300";
+  }
+  return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300";
+}
+
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
@@ -578,9 +596,9 @@ export default function PublicationsList({ config, publications, embedded = fals
                             </p>
 
                             {/* Venue + Year */}
-                            <p className="text-sm text-neutral-500 mb-2">
+                            {/* <p className="text-sm text-neutral-500 mb-2">
                                 {pub.journal || pub.conference}
-                            </p>
+                            </p> */}
 
                             {/* Preview */}
                             {pub.preview && (
@@ -603,6 +621,16 @@ export default function PublicationsList({ config, publications, embedded = fals
 
                             {/* Actions */}
                             <div className="flex flex-wrap gap-2">
+                                {pub.publishedAt && (
+                                    <span
+                                        className={cn(
+                                        "inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium",
+                                        getVenueColor(pub.publishedAt)
+                                        )}
+                                    >
+                                        {pub.publishedAt}
+                                    </span>
+                                )}
                                 {pub.doi && (
                                     <a
                                         href={`https://doi.org/${pub.doi}`}

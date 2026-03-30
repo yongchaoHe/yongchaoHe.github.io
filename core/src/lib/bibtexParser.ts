@@ -61,6 +61,7 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
 
     // Parse preview field (remove braces if present)
     const preview = tags.preview?.replace(/[{}]/g, '');
+    const publishedAt = cleanBibTeXString(tags.publishedAt);
 
     // Create publication object
     const publication: Publication = {
@@ -74,6 +75,7 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
       tags: keywords,
       keywords,
       researchArea: detectResearchArea(tags.title, keywords),
+      publishedAt,
 
       // Optional fields
       journal: cleanBibTeXString(tags.journal),
@@ -90,7 +92,7 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
       preview,
 
       // Store original BibTeX (excluding custom fields)
-      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code']),
+      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code', 'publishedAt',]),
     };
 
     // Clean up undefined fields
