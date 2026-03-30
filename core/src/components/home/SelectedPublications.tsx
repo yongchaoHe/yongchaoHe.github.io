@@ -73,13 +73,23 @@ export default function SelectedPublications({ publications, title = 'Selected P
                         </div>
 
                         {/* Authors */}
-                        <p className="text-xs text-neutral-500 mt-[2px]">
+                        <p className="text-sm text-neutral-600 mb-1 flex flex-wrap gap-2">
                         {pub.authors.map((a, i) => (
-                            <span key={i}>
-                            <span className={a.isHighlighted ? 'text-accent font-medium' : ''}>
+                            <span key={i} className="relative inline-flex items-center">
+                            <span className={a.isHighlighted ? 'text-accent font-semibold relative' : 'relative'}>
                                 {a.name}
+                                {a.isCorresponding && (
+                                <sup className="text-xs text-neutral-400 ml-0.5" title="Corresponding author">
+                                    *
+                                </sup>
+                                )}
+                                {a.isCoAuthor && (
+                                <sup className="text-xs text-neutral-400 ml-0.5" title="Co-author">
+                                    #
+                                </sup>
+                                )}
                             </span>
-                            {i < pub.authors.length - 1 && ', '}
+                            {i < pub.authors.length - 1 && <span className="text-neutral-500">,</span>}
                             </span>
                         ))}
                         </p>

@@ -555,6 +555,17 @@ export default function PublicationsList({ config, publications, embedded = fals
                 </AnimatePresence>
             </div>
 
+            {/* Legend */}
+            <p className="text-xs text-neutral-500 mb-2">
+            <span className="font-medium mr-2">Legend: </span>
+            <span className="mr-2">
+                <sup>#</sup> Co-First Author, 
+            </span>
+            <span>
+                <sup>*</sup> Corresponding Author
+            </span>
+            </p>
+        
             {/* Timeline */}
             <div className="relative">
                 <div className="absolute left-4 top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800" />
@@ -584,7 +595,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                             </div>
 
                             {/* Authors */}
-                            <p className="text-sm text-neutral-600 mb-1">
+                            {/* <p className="text-sm text-neutral-600 mb-1">
                                 {pub.authors.map((a, i) => (
                                     <span key={i}>
                                         <span className={a.isHighlighted ? 'text-accent font-semibold' : ''}>
@@ -593,6 +604,26 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         {i < pub.authors.length - 1 && ', '}
                                     </span>
                                 ))}
+                            </p> */}
+                            <p className="text-sm text-neutral-600 mb-1 flex flex-wrap gap-2">
+                            {pub.authors.map((a, i) => (
+                                <span key={i} className="relative inline-flex items-center">
+                                <span className={a.isHighlighted ? 'text-accent font-semibold relative' : 'relative'}>
+                                    {a.name}
+                                    {a.isCorresponding && (
+                                    <sup className="text-xs text-neutral-400 ml-0.5" title="Corresponding author">
+                                        *
+                                    </sup>
+                                    )}
+                                    {a.isCoAuthor && (
+                                    <sup className="text-xs text-neutral-400 ml-0.5" title="Co-author">
+                                        #
+                                    </sup>
+                                    )}
+                                </span>
+                                {i < pub.authors.length - 1 && <span className="text-neutral-500">,</span>}
+                                </span>
+                            ))}
                             </p>
 
                             {/* Venue + Year */}
