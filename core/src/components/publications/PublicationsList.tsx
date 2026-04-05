@@ -395,17 +395,32 @@ function getVenueColor(venue?: string) {
 
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
+    const [selectedYear, setSelectedYear] = useState<number | 'all' | 'older'>('all');
     const [selectedArea, setSelectedArea] = useState<string | 'all'>('all');
     const [showFilters, setShowFilters] = useState(false);
     const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
     const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
 
-    const years = useMemo(() => {
+    const yearBuckets = useMemo(() => {
+        const currentYear = new Date().getFullYear();
+        const cutoff = currentYear - 5; 
+
         const uniqueYears = Array.from(new Set(publications.map(p => p.year)));
-        return uniqueYears.sort((a, b) => b - a);
+
+        const recentYears = uniqueYears
+            .filter(y => y >= cutoff)
+            .sort((a, b) => b - a);
+
+        const hasOlder = uniqueYears.some(y => y < cutoff);
+
+        return {
+            recentYears,
+            olderLabel: hasOlder ? `≤ ${cutoff - 1}` : null,
+            cutoff,
+        };
     }, [publications]);
 
+    
     const areas = useMemo(() => {
         const allAreas = publications.flatMap(p => p.researchAreas || []);
         return Array.from(new Set(allAreas)).sort();
@@ -420,7 +435,15 @@ export default function PublicationsList({ config, publications, embedded = fals
                 pub.journal?.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 pub.conference?.toLowerCase().includes(searchQuery.toLowerCase());
 
-            const matchesYear = selectedYear === 'all' || pub.year === selectedYear;
+            let matchesYear = false;
+
+            if (selectedYear === 'all') {
+                matchesYear = true;
+            } else if (selectedYear === 'older') {
+                matchesYear = pub.year < yearBuckets.cutoff;
+            } else {
+                matchesYear = pub.year === selectedYear;
+            }
 
             // Check if selectedArea includes any of the researchAreas of the publication
             const matchesArea =
@@ -429,7 +452,8 @@ export default function PublicationsList({ config, publications, embedded = fals
 
             return matchesSearch && matchesYear && matchesArea;
         });
-    }, [publications, searchQuery, selectedYear, selectedArea]);
+    }, [publications, searchQuery, selectedYear, selectedArea, yearBuckets]);
+
 
     return (
         <motion.div
@@ -503,7 +527,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         >
                                             All
                                         </button>
-                                        {years.map(year => (
+                                        {yearBuckets.recentYears.map(year => (
                                             <button
                                                 key={year}
                                                 onClick={() => setSelectedYear(year)}
@@ -517,6 +541,20 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 {year}
                                             </button>
                                         ))}
+
+                                        {yearBuckets.olderLabel && (
+                                            <button
+                                                onClick={() => setSelectedYear('older')}
+                                                className={cn(
+                                                    "px-3 py-1 text-xs rounded-full transition-colors",
+                                                    selectedYear === 'older'
+                                                        ? "bg-accent text-white"
+                                                        : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
+                                                )}
+                                            >
+                                                {yearBuckets.olderLabel}
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
 
