@@ -74,7 +74,7 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
       status: 'published',
       tags: keywords,
       keywords,
-      researchArea: detectResearchArea(tags.title, keywords),
+      researchAreas: detectResearchArea(tags.title, keywords),
       publishedAt,
 
       // Optional fields
@@ -209,29 +209,38 @@ function cleanBibTeXString(str?: string): string {
   return cleaned;
 }
 
-function detectResearchArea(title: string, keywords: string[]): ResearchArea {
-  const text = (title + ' ' + keywords.join(' ')).toLowerCase();
-
-  if (text.includes('healthcare') || text.includes('medical') || text.includes('health')) {
-    return 'ai-healthcare';
-  }
-  if (text.includes('signal') || text.includes('processing')) {
-    return 'signal-processing';
-  }
-  if (text.includes('reliability') || text.includes('fault') || text.includes('diagnosis')) {
-    return 'reliability-engineering';
-  }
-  if (text.includes('quantum')) {
-    return 'quantum-computing';
-  }
-  if (text.includes('neural') || text.includes('spiking')) {
-    return 'neural-networks';
-  }
-  if (text.includes('transformer') || text.includes('attention')) {
-    return 'transformer-architectures';
+function detectResearchArea(title: string, keywords: string[]): ResearchArea[] {
+  const text = (keywords.join(' ')).toLowerCase();
+  const areas: ResearchArea[] = [];
+  // --- AI Infra ---
+  if (
+    text.includes('ai infra')
+  ) {
+    areas.push('AI Infra');
   }
 
-  return 'machine-learning';
+  // --- Networking ---
+  if (
+    text.includes('network')
+  ) {
+    areas.push('Network');
+  }
+
+  // --- Distributed Computing ---
+  if (
+    text.includes('distributed system')
+  ) {
+    areas.push('Distributed System');
+  }
+
+  // --- ML Algorithm ---
+  if (
+    text.includes('ml algorithm')
+  ) {
+    areas.push('ML Algorithm');
+  }
+
+  return areas.length > 0 ? areas : ['Other'];
 }
 
 function reconstructBibTeX(entry: { entryType: string; citationKey: string; entryTags: Record<string, string> }, excludeFields: string[] = []): string {

@@ -396,7 +396,7 @@ function getVenueColor(venue?: string) {
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
-    const [selectedType, setSelectedType] = useState<string | 'all'>('all');
+    const [selectedArea, setSelectedArea] = useState<string | 'all'>('all');
     const [showFilters, setShowFilters] = useState(false);
     const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
     const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
@@ -406,9 +406,9 @@ export default function PublicationsList({ config, publications, embedded = fals
         return uniqueYears.sort((a, b) => b - a);
     }, [publications]);
 
-    const types = useMemo(() => {
-        const uniqueTypes = Array.from(new Set(publications.map(p => p.type)));
-        return uniqueTypes.sort();
+    const areas = useMemo(() => {
+        const allAreas = publications.flatMap(p => p.researchAreas || []);
+        return Array.from(new Set(allAreas)).sort();
     }, [publications]);
 
     // Filter publications
@@ -421,11 +421,15 @@ export default function PublicationsList({ config, publications, embedded = fals
                 pub.conference?.toLowerCase().includes(searchQuery.toLowerCase());
 
             const matchesYear = selectedYear === 'all' || pub.year === selectedYear;
-            const matchesType = selectedType === 'all' || pub.type === selectedType;
 
-            return matchesSearch && matchesYear && matchesType;
+            // Check if selectedArea includes any of the researchAreas of the publication
+            const matchesArea =
+                selectedArea === 'all' || 
+                pub.researchAreas.some(area => selectedArea.includes(area));
+
+            return matchesSearch && matchesYear && matchesArea;
         });
-    }, [publications, searchQuery, selectedYear, selectedType]);
+    }, [publications, searchQuery, selectedYear, selectedArea]);
 
     return (
         <motion.div
@@ -523,28 +527,28 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     </label>
                                     <div className="flex flex-wrap gap-2">
                                         <button
-                                            onClick={() => setSelectedType('all')}
+                                            onClick={() => setSelectedArea('all')}
                                             className={cn(
                                                 "px-3 py-1 text-xs rounded-full transition-colors",
-                                                selectedType === 'all'
+                                                selectedArea === 'all'
                                                     ? "bg-accent text-white"
                                                     : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
                                             )}
                                         >
                                             All
                                         </button>
-                                        {types.map(type => (
+                                        {areas.map(area => (
                                             <button
-                                                key={type}
-                                                onClick={() => setSelectedType(type)}
+                                                key={area}
+                                                onClick={() => setSelectedArea(area)}
                                                 className={cn(
                                                     "px-3 py-1 text-xs rounded-full capitalize transition-colors",
-                                                    selectedType === type
+                                                    selectedArea === area
                                                         ? "bg-accent text-white"
                                                         : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
                                                 )}
                                             >
-                                                {type.replace('-', ' ')}
+                                                {area.replace('-', ' ')}
                                             </button>
                                         ))}
                                     </div>
