@@ -381,6 +381,9 @@ function getVenueColor(venue?: string) {
   if (v.includes('preprint')) {
     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
   }
+  if (v.includes('technical report')) {
+    return "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300";
+  }
   if (
     v.includes('neurips') || v.includes('nips') ||
     v.includes('icml') || v.includes('iclr') ||
