@@ -59,20 +59,19 @@ export default function SelectedPublications({ publications, title = 'Selected P
                         className="bg-neutral-50 dark:bg-neutral-800 p-2 rounded-lg shadow-sm border border-neutral-200 dark:border-[rgba(148,163,184,0.24)] hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                     >
                         {/* Title */}
-                        <div className="flex flex-wrap items-baseline gap-x-2">
+                        <div className="flex flex-wrap items-center gap-x-2">
+                        {pub.publishedAt && (
+                            <span className={cn(
+                            "text-xs font-semibold",
+                            getVenueColor(pub.publishedAt)
+                            )}>
+                            {pub.publishedAt}
+                            </span>
+                        )}
+
                         <h3 className="text-[15px] font-medium text-primary leading-snug">
                             {pub.title}
                         </h3>
-
-                        {/* Venue (inline, no badge) */}
-                        {pub.publishedAt && (
-                            <span className={cn(
-                            "text-xs font-medium",
-                            getVenueColor(pub.publishedAt)
-                            )}>
-                            ({pub.publishedAt})
-                            </span>
-                        )}
                         </div>
 
                         {/* Authors */}
