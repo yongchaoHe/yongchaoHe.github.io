@@ -1,3 +1,16 @@
+@misc{liu2025unifiedsparseattentionmultigranularity,
+      selected={false},
+      publishedAt={ICML 2026},
+      keywords = {AI Infra, ML Algorithm},
+      title={A Unified Sparse Attention via Multi-Granularity Compression}, 
+      author={Siran Liu and Zane Cao and Yongchao He*},
+      year={2026},
+      eprint={2512.14082},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      abstract={Efficient long-context understanding and reasoning are increasingly vital for large language model (LLM) applications such as multi-turn dialogue and program analysis. However, the core self-attention mechanism scales quadratically with sequence length, creating a fundamental computational bottleneck. Existing sparse attention methods alleviate this issue but face trade-offs: training-based methods are costly and cannot be directly applied as acceleration plugins for other models, while inference-time methods often compromise efficiency or cross-modal generality. To address these limitations, we present UniSparse, a unified mechanism that introduces the notion of composite tokens--compact representations that aggregate multi-granularity contextual information. Building on this abstraction, UniSparse dynamically constructs sparse attention through multi-granularity compression and block-level selection, enabling efficient and hardware-friendly execution on GPU. Across multiple modalities and tasks ranging from synthetic benchmarks to real-world applications, UniSparse consistently surpasses state-of-the-art sparse attention methods (e.g., MInference, XAttention, FlexPrefill) in both accuracy and efficiency, achieving ≥ 99% of full-attention accuracy and up to 2.61× faster attention computation than FlashAttention.},
+      url={https://arxiv.org/abs/2512.14082}
+}
 @article{liu2026confspec,
       selected={true},
       publishedAt={ACL 2026},
@@ -61,19 +74,6 @@
       primaryClass={cs.DC},
       abstract = {Efficiently harnessing GPU compute is critical to improving user experience and reducing operational costs in large language model (LLM) services. However, current inference engine schedulers overlook the attention backend's sensitivity to request-length heterogeneity within a batch. As state-of-the-art models now support context windows exceeding 128K tokens, this once-tolerable inefficiency has escalated into a primary system bottleneck, causing severe performance degradation through GPU underutilization and increased latency. We present L4, a runtime system that dynamically reschedules requests across multiple instances serving the same LLM to mitigate per-instance length heterogeneity. L4 partitions these instances into length-specialized groups, each handling requests within a designated length range, naturally forming a pipeline as requests flow through them. L4 devises a dynamic programming algorithm to efficiently find the stage partition with the best QoE, employs runtime range refinement together with decentralized load (re)balance both across and within groups, achieving a balanced and efficient multi-instance service. Our evaluation shows that, under the same configuration, L4 reduces end-to-end latency by up to 67% and tail latency by up to 69%, while improving overall system throughput by up to 2.89 times compared to the state-of-the-art multi-instance scheduling systems.},
       url={https://arxiv.org/abs/2512.19179}
-}
-@misc{liu2025unifiedsparseattentionmultigranularity,
-      selected={false},
-      publishedAt={Preprint},
-      keywords = {AI Infra, ML Algorithm},
-      title={A Unified Sparse Attention via Multi-Granularity Compression}, 
-      author={Siran Liu and Zane Cao and Yongchao He*},
-      year={2025},
-      eprint={2512.14082},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      abstract={Efficient long-context understanding and reasoning are increasingly vital for large language model (LLM) applications such as multi-turn dialogue and program analysis. However, the core self-attention mechanism scales quadratically with sequence length, creating a fundamental computational bottleneck. Existing sparse attention methods alleviate this issue but face trade-offs: training-based methods are costly and cannot be directly applied as acceleration plugins for other models, while inference-time methods often compromise efficiency or cross-modal generality. To address these limitations, we present UniSparse, a unified mechanism that introduces the notion of composite tokens--compact representations that aggregate multi-granularity contextual information. Building on this abstraction, UniSparse dynamically constructs sparse attention through multi-granularity compression and block-level selection, enabling efficient and hardware-friendly execution on GPU. Across multiple modalities and tasks ranging from synthetic benchmarks to real-world applications, UniSparse consistently surpasses state-of-the-art sparse attention methods (e.g., MInference, XAttention, FlexPrefill) in both accuracy and efficiency, achieving ≥ 99% of full-attention accuracy and up to 2.61× faster attention computation than FlashAttention.},
-      url={https://arxiv.org/abs/2512.14082}
 }
 @misc{zhao2025simpledisaggregatingsamplinggpu,
       selected={false},
