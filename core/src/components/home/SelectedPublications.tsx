@@ -12,24 +12,25 @@ interface SelectedPublicationsProps {
 }
 
 function getVenueColor(venue?: string) {
-  if (!venue) return "bg-neutral-100 text-neutral-700";
-  const v = venue.toLowerCase();
-  if (v.includes('preprint')) {
-    return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
-  }
-  if (v.includes('technical report')) {
-    return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
-  }
-  if (
-    v.includes('neurips') || v.includes('nips') ||
-    v.includes('icml') || v.includes('iclr') ||
-    v.includes('aaai') || v.includes('ijcai') || v.includes('kdd') ||
-    v.includes('acl') || v.includes('emnlp') || v.includes('naacl') ||
-    v.includes('cvpr') || v.includes('iccv') || v.includes('eccv')
-  ) {
-    return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300";
-  }
-  return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300";
+  if (!venue) return "bg-neutral-100 text-purple-700";
+  return "bg-neutral-100 text-purple-700";
+//   const v = venue.toLowerCase();
+//   if (v.includes('preprint')) {
+//     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
+//   }
+//   if (v.includes('technical report')) {
+//     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
+//   }
+//   if (
+//     v.includes('neurips') || v.includes('nips') ||
+//     v.includes('icml') || v.includes('iclr') ||
+//     v.includes('aaai') || v.includes('ijcai') || v.includes('kdd') ||
+//     v.includes('acl') || v.includes('emnlp') || v.includes('naacl') ||
+//     v.includes('cvpr') || v.includes('iccv') || v.includes('eccv')
+//   ) {
+//     return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300";
+//   }
+//   return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300";
 }
 
 export default function SelectedPublications({ publications, title = 'Selected Publications', enableOnePageMode = false }: SelectedPublicationsProps) {

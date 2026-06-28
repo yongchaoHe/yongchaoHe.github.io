@@ -6,8 +6,8 @@ import Image from 'next/image';
 import {
     CalendarIcon,
     BookOpenIcon,
-    ClipboardDocumentIcon,
-    DocumentTextIcon
+    // ClipboardDocumentIcon,
+    // DocumentTextIcon
 } from '@heroicons/react/24/outline';
 import { Publication } from '@/types/publication';
 import { PublicationPageConfig } from '@/types/page';
@@ -21,31 +21,32 @@ interface PublicationsListProps {
 
 function getVenueColor(venue?: string) {
   if (!venue) return "bg-neutral-100 text-neutral-700";
-  const v = venue.toLowerCase();
-  if (v.includes('preprint')) {
-    return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
-  }
-  if (v.includes('technical report')) {
-    return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
-  }
-  if (
-    v.includes('neurips') || v.includes('nips') ||
-    v.includes('icml') || v.includes('iclr') ||
-    v.includes('aaai') || v.includes('ijcai') || v.includes('kdd') ||
-    v.includes('acl') || v.includes('emnlp') || v.includes('naacl') ||
-    v.includes('cvpr') || v.includes('iccv') || v.includes('eccv')
-  ) {
-    return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300";
-  }
-  return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300";
+  return "bg-neutral-100 text-neutral-700";
+//   const v = venue.toLowerCase();
+//   if (v.includes('preprint')) {
+//     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
+//   }
+//   if (v.includes('technical report')) {
+//     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
+//   }
+//   if (
+//     v.includes('neurips') || v.includes('nips') ||
+//     v.includes('icml') || v.includes('iclr') ||
+//     v.includes('aaai') || v.includes('ijcai') || v.includes('kdd') ||
+//     v.includes('acl') || v.includes('emnlp') || v.includes('naacl') ||
+//     v.includes('cvpr') || v.includes('iccv') || v.includes('eccv')
+//   ) {
+//     return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300";
+//   }
+//   return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300";
 }
 
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const [searchQuery] = useState('');
     const [selectedYear, setSelectedYear] = useState<number | 'all' | 'older'>('all');
     const [selectedArea, setSelectedArea] = useState<string | 'all'>('all');
-    const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
-    const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
+    // const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
+    // const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
 
     const yearBuckets = useMemo(() => {
         const currentYear = new Date().getFullYear();
@@ -271,7 +272,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         {pub.publishedAt}
                                     </span>
                                 )}
-                                {pub.doi && (
+                                {/* {pub.doi && (
                                     <a
                                         href={`https://doi.org/${pub.doi}`}
                                         target="_blank"
@@ -280,7 +281,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     >
                                         DOI
                                     </a>
-                                )}
+                                )} */}
                                 {pub.code && (
                                     <a
                                         href={pub.code}
@@ -302,7 +303,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     </a>
                                 )}
 
-                                {pub.abstract && (
+                                {/* {pub.abstract && (
                                     <button
                                         onClick={() => setExpandedAbstractId(expandedAbstractId === pub.id ? null : pub.id)}
                                         className={cn(
@@ -315,9 +316,9 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         <DocumentTextIcon className="h-3 w-3 mr-1.5" />
                                         Abstract
                                     </button>
-                                )}
+                                )} */}
 
-                                {pub.bibtex && (
+                                {/* {pub.bibtex && (
                                     <button
                                         onClick={() => setExpandedBibtexId(expandedBibtexId === pub.id ? null : pub.id)}
                                         className={cn(
@@ -330,11 +331,11 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     <BookOpenIcon className="h-3 w-3 mr-1.5" />
                                         BibTeX
                                     </button>
-                                )}
+                                )} */}
                             </div>
 
                             {/* Expand */}
-                            <AnimatePresence>
+                            {/* <AnimatePresence>
                                 {expandedAbstractId === pub.id && pub.abstract ? (
                                     <motion.div
                                         key="abstract"
@@ -375,7 +376,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         </div>
                                     </motion.div>
                                 ) : null}
-                            </AnimatePresence>
+                            </AnimatePresence> */}
                         </div>
                     </motion.div>
                 ))}
