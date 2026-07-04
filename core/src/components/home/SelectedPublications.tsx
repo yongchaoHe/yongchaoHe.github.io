@@ -12,8 +12,8 @@ interface SelectedPublicationsProps {
 }
 
 function getVenueColor(venue?: string) {
-  if (!venue) return "bg-neutral-100 text-purple-700";
-  return "bg-neutral-100 text-purple-700";
+  if (!venue) return "bg-neutral-10 text-purple-400";
+  return "bg-neutral-200 text-neutral-600";
 //   const v = venue.toLowerCase();
 //   if (v.includes('preprint')) {
 //     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
@@ -61,6 +61,12 @@ export default function SelectedPublications({ publications, title = 'Selected P
                     >
                         {/* Title */}
                         <div className="flex flex-wrap items-center gap-x-2">
+                        <h3 className="text-[15px] font-medium text-primary leading-snug">
+                            {pub.title}
+                        </h3>
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-x-2">
                         {pub.publishedAt && (
                             <span className={cn(
                             "text-xs font-semibold",
@@ -69,11 +75,7 @@ export default function SelectedPublications({ publications, title = 'Selected P
                             {pub.publishedAt}
                             </span>
                         )}
-
-                        <h3 className="text-[15px] font-medium text-primary leading-snug">
-                            {pub.title}
-                        </h3>
-                        </div>
+                        
 
                         {/* Authors */}
                         <p className="text-sm text-neutral-600 mb-1 flex flex-wrap gap-2">
@@ -96,6 +98,7 @@ export default function SelectedPublications({ publications, title = 'Selected P
                             </span>
                         ))}
                         </p>
+                        </div>
                     </motion.div>
                 ))}
             </div>

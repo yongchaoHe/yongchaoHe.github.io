@@ -1,6 +1,10 @@
 [[news]]
+date = "2026-07"
+content = "🎉🎉 LMTracer accepted in SOSP 2026!"
+
+[[news]]
 date = "2026-05"
-content = "🎉🎉 One paper accepted in ICML 2026!"
+content = "🎉🎉 UniSparse accepted in ICML 2026!"
 
 [[news]]
 date = "2026-04"

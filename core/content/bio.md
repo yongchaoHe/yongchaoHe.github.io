@@ -7,8 +7,6 @@ My work sits at the intersection of distributed systems, runtime design, and lar
 
 I earned my Ph.D. from the [Institute for Interdisciplinary Information Sciences](https://iiis.tsinghua.edu.cn/en/) (IIIS, 交叉信息研究院) at Tsinghua University, where I was advised by [Wei Xu](https://people.iiis.tsinghua.edu.cn/\~weixu/) and [Wenfei Wu](https://wenfei-wu.github.io).
 
-Now, I lead a research & develop group focused on AI infra — exploring how to make large-scale AI systems faster, cheaper, and a little less painful.
-
 Occasional cat wrangler, full-time system tinkerer.
 Just another small node in the AI era.
 
