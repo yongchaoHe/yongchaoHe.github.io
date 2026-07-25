@@ -65,7 +65,7 @@ export default function PublicationsList({ config, publications, embedded = fals
 
     const areas = useMemo(() => {
         const allAreas = publications.flatMap(p => p.researchAreas || []);
-        return Array.from(new Set(allAreas)).sort();
+        return Array.from(new Set(allAreas))
     }, [publications]);
 
     // Filter publications

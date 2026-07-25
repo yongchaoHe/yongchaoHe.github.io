@@ -214,33 +214,19 @@ function detectResearchArea(title: string, keywords: string[]): ResearchArea[] {
   const areas: ResearchArea[] = [];
   // --- AI Infra ---
   if (
-    text.includes('ai infra')
+    text.includes('training')
   ) {
-    areas.push('AI Infra');
+    areas.push('Training Systems');
   }
 
   // --- Networking ---
   if (
-    text.includes('network')
+    text.includes('inference')
   ) {
-    areas.push('Network');
+    areas.push('Inference Systems');
   }
 
-  // --- Distributed Computing ---
-  if (
-    text.includes('distributed system')
-  ) {
-    areas.push('Distributed System');
-  }
-
-  // --- ML Algorithm ---
-  if (
-    text.includes('ml algorithm')
-  ) {
-    areas.push('ML Algorithm');
-  }
-
-  return areas.length > 0 ? areas : ['Other'];
+  return areas.length > 0 ? areas : ['Systems & Infrastructure'];
 }
 
 function reconstructBibTeX(entry: { entryType: string; citationKey: string; entryTags: Record<string, string> }, excludeFields: string[] = []): string {

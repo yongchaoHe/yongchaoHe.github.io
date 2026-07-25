@@ -68,9 +68,7 @@ export type PublicationStatus =
   | 'draft';
 
 export type ResearchArea =
-  | 'AI Infra'
-  | 'Network'
-  | 'Distributed System'
-  | 'ML Algorithm'
-  | 'Other';
+  | 'Training Systems'
+  | 'Inference Systems'
+  | 'Systems & Infrastructure';
 
