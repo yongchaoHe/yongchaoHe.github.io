@@ -12,33 +12,12 @@ import {
 import { Publication } from '@/types/publication';
 import { PublicationPageConfig } from '@/types/page';
 import { cn } from '@/lib/utils';
+import { getVenueColorClasses, getVenueDotColor } from '@/lib/venueColors';
 
 interface PublicationsListProps {
     config: PublicationPageConfig;
     publications: Publication[];
     embedded?: boolean;
-}
-
-function getVenueColor(venue?: string) {
-  if (!venue) return "bg-neutral-100 text-neutral-700";
-  return "bg-neutral-100 text-neutral-700";
-//   const v = venue.toLowerCase();
-//   if (v.includes('preprint')) {
-//     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
-//   }
-//   if (v.includes('technical report')) {
-//     return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300";
-//   }
-//   if (
-//     v.includes('neurips') || v.includes('nips') ||
-//     v.includes('icml') || v.includes('iclr') ||
-//     v.includes('aaai') || v.includes('ijcai') || v.includes('kdd') ||
-//     v.includes('acl') || v.includes('emnlp') || v.includes('naacl') ||
-//     v.includes('cvpr') || v.includes('iccv') || v.includes('eccv')
-//   ) {
-//     return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300";
-//   }
-//   return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300";
 }
 
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
@@ -219,9 +198,12 @@ export default function PublicationsList({ config, publications, embedded = fals
                         className="relative pl-12 pb-5 group"
                     >
                         {/* dot */}
-                        <div className="absolute left-2 top-2 w-4 h-4 rounded-full bg-accent border-2 border-white dark:border-neutral-900 shadow-[0_0_8px_2px_rgba(0,132,255,0.6)]" />
+                        <div className={cn(
+                            "absolute left-2 top-2 w-4 h-4 rounded-full border-2 border-white dark:border-neutral-900 transition-colors duration-200",
+                            getVenueDotColor(pub.publishedAt)
+                        )} />
                         {/* content */}
-                        <div className="p-2 -ml-4 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
+                        <div className="p-3 -ml-4 rounded-lg bg-white dark:bg-neutral-900/20 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-800 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
                             {/* Title + Year */}
                             <div className="flex justify-between items-baseline mb-1">
                                 <h3 className="text-lg font-semibold text-primary"> {pub.title} </h3>
@@ -232,7 +214,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                             <p className="text-sm text-neutral-600 mb-1 flex flex-wrap gap-2">
                             {pub.authors.map((a, i) => (
                                 <span key={i} className="relative inline-flex items-center">
-                                <span className={a.isHighlighted ? 'text-accent font-semibold relative' : 'relative'}>
+                                <span className={a.isHighlighted ? 'text-primary font-bold relative' : 'relative'}>
                                     {a.name}
                                     {a.isCorresponding && (
                                         <sup className="text-xs text-neutral-400 ml-0.5" title="Corresponding author"> * </sup>
@@ -265,8 +247,8 @@ export default function PublicationsList({ config, publications, embedded = fals
                                 {pub.publishedAt && (
                                     <span
                                         className={cn(
-                                        "inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium",
-                                        getVenueColor(pub.publishedAt)
+                                            "inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium",
+                                            getVenueColorClasses(pub.publishedAt)
                                         )}
                                     >
                                         {pub.publishedAt}
@@ -299,7 +281,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
                                     >
-                                        Paper
+                                        PDF
                                     </a>
                                 )}
 

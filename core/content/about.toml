@@ -14,11 +14,10 @@ source = "bio.md"
 title = "About"
 
 [[sections]]
-id = "featured_publications"
-type = "publications"
-title = "Selected Publications"
-filter = "selected"
-limit = 5
+id = "awards"
+type = "awards"
+title = "Awards"
+source = "awards.toml"
 
 [[sections]]
 id = "news"

@@ -3,14 +3,14 @@ title = "Awards"
 description = "Honors and awards I have received."
 
 [[items]]
-title = "CTO List (Inaugural Member) 🏆"
+title = "CTO List (Inaugural Member)"
 subtitle = "UbiQuant — Company-wide High-Potential Technical Leadership Program"
 date = "2024"
 content = ""
 
 [[items]]
-title = "Distinguished Paper Award 🏆"
-subtitle = "Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS'23)"
+title = "Distinguished Paper Award"
+subtitle = "28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS'23)"
 date = "2023"
 content = ""
 

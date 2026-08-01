@@ -5,6 +5,7 @@ import Profile from '@/components/home/Profile';
 import About from '@/components/home/About';
 import SelectedPublications from '@/components/home/SelectedPublications';
 import News, { NewsItem } from '@/components/home/News';
+import Awards from '@/components/home/Awards';
 import PublicationsList from '@/components/publications/PublicationsList';
 import TextPage from '@/components/pages/TextPage';
 import CardPage from '@/components/pages/CardPage';
@@ -15,7 +16,7 @@ import { BasePageConfig, PublicationPageConfig, TextPageConfig, CardPageConfig }
 // Define types for section config
 interface SectionConfig {
   id: string;
-  type: 'markdown' | 'publications' | 'list';
+  type: 'markdown' | 'publications' | 'list' | 'card' | 'awards';
   title?: string;
   source?: string;
   filter?: string;
@@ -23,6 +24,8 @@ interface SectionConfig {
   content?: string;
   publications?: Publication[];
   items?: NewsItem[];
+  awards?: { title: string; subtitle?: string; date?: string; content?: string }[];
+  config?: CardPageConfig;
 }
 
 type PageData =
@@ -64,6 +67,20 @@ export default function Home() {
           return {
             ...section,
             items: newsData?.news || []
+          };
+        }
+        case 'card': {
+          const cardConfig = section.source ? getTomlContent<CardPageConfig>(section.source) : null;
+          return {
+            ...section,
+            config: cardConfig || undefined
+          };
+        }
+        case 'awards': {
+          const awardsConfig = section.source ? getTomlContent<{ items: { title: string; subtitle?: string; date?: string; content?: string }[] }>(section.source) : null;
+          return {
+            ...section,
+            awards: awardsConfig?.items || []
           };
         }
         default:
@@ -130,14 +147,13 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-background min-h-screen">
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
 
         {/* Left Column - Profile */}
         <div className="lg:col-span-1">
           <Profile
             author={config.author}
             social={config.social}
-            features={config.features}
             researchInterests={researchInterests}
           />
         </div>
@@ -170,6 +186,22 @@ export default function Home() {
                       <News
                         key={section.id}
                         items={section.items || []}
+                        title={section.title}
+                      />
+                    );
+                  case 'card':
+                    return section.config ? (
+                      <CardPage
+                        key={section.id}
+                        config={section.config}
+                        embedded={true}
+                      />
+                    ) : null;
+                  case 'awards':
+                    return (
+                      <Awards
+                        key={section.id}
+                        items={section.awards || []}
                         title={section.title}
                       />
                     );

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /Users/heyongchao/Documents/code/yongchaoHe.github.io && pwd && python3 -m http.server 3000 --bind 127.0.0.1 >/tmp/homepage-server.log 2>&1 &\nsleep 2\ncurl -s http://127.0.0.1:3000/ | head -c 200)",
+      "Bash(which chromium google-chrome chrome 2>/dev/null; ls /Applications/Google\\\\ Chrome.app/Contents/MacOS/Google\\\\ Chrome 2>/dev/null; echo \"done\")",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)"
+    ]
+  }
+}

@@ -27,7 +27,7 @@ github = "https://github.com/yongchaoHe"
 
 [features]
 # Show a like button on the about page
-enable_likes = true
+enable_likes = false
 
 # Display all subpages on a single page
 enable_one_page_mode = false
@@ -44,23 +44,23 @@ type = "page"
 target = "publications"
 href = "/publications"
 
-[[navigation]]
-title = "Projects"
-type = "page"
-target = "projects"
-href = "/projects"
+# [[navigation]]
+# title = "Projects"
+# type = "page"
+# target = "projects"
+# href = "/projects"
 
-[[navigation]]
-title = "Awards"
-type = "page"
-target = "awards"
-href = "/awards"
+# [[navigation]]
+# title = "Awards"
+# type = "page"
+# target = "awards"
+# href = "/awards"
 
-[[navigation]]
-title = "Services"
-type = "page"
-target = "services"
-href = "/services"
+# [[navigation]]
+# title = "Services"
+# type = "page"
+# target = "services"
+# href = "/services"
 
 # [[navigation]]
 # title = "CV"

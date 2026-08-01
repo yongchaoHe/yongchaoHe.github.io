@@ -17,16 +17,18 @@ export default function CardPage({
             transition={{ duration: 0.6, delay: 0.4 }}
         >
             {/* Header */}
-            <div className={embedded ? "mb-4" : "mb-8"}>
-                <h1 className={`${embedded ? "text-xl" : "text-3xl"} font-serif font-bold text-primary mb-4`}>
-                    {config.title}
-                </h1>
-                {config.description && (
-                    <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl`}>
-                        {config.description}
-                    </p>
-                )}
-            </div>
+            {!embedded && (
+                <div className="mb-8">
+                    <h1 className="text-3xl font-serif font-bold text-primary mb-4">
+                        {config.title}
+                    </h1>
+                    {config.description && (
+                        <p className="text-lg text-neutral-600 dark:text-neutral-500 max-w-2xl">
+                            {config.description}
+                        </p>
+                    )}
+                </div>
+            )}
 
             {/* Timeline */}
             <div className="relative">
@@ -42,9 +44,9 @@ export default function CardPage({
                         className={`relative pl-12 ${embedded ? "pb-5" : "pb-5"} group`}
                     >
                         {/* dot */}
-                        <div className="absolute left-2 top-2 w-4 h-4 rounded-full bg-accent border-2 border-white dark:border-neutral-900 shadow-[0_0_8px_2px_rgba(0,132,255,0.6)]" />
+                        <div className="absolute left-2 top-2 w-4 h-4 rounded-full bg-accent border-2 border-white dark:border-neutral-900 shadow-[0_0_8px_2px_rgba(37,99,235,0.35)]" />
                         {/* content */}
-                        <div className="hover:bg-neutral-50 dark:hover:bg-neutral-900/50 rounded-lg p-2 -ml-4 transition-colors">
+                        <div className="p-3 -ml-4 rounded-lg bg-white dark:bg-neutral-900/20 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-800 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
                             
                             {/* Title + Year */}
                             <div className="flex justify-between items-baseline mb-1">
@@ -58,12 +60,12 @@ export default function CardPage({
 
                             {/* Meta */}
                             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2 text-sm text-neutral-500">
-                                {item.link && (<a href={item.link} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline"> Source Code </a>)}
-                                {item.paper && (<a href={item.paper} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline"> Technical Report </a>)}
+                                {item.link && (<a href={item.link} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-accent hover:underline transition-colors"> Source Code </a>)}
+                                {item.paper && (<a href={item.paper} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-accent hover:underline transition-colors"> Technical Report </a>)}
                             </div>
 
                             {/* Subtitle */}
-                            {item.subtitle && (<p className={`${embedded ? "text-sm" : "text-base"} text-accent font-medium mb-2`}> {item.subtitle} </p>)}
+                            {item.subtitle && (<p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 font-medium mb-2`}> {item.subtitle} </p>)}
                             {/* Content */}
                             {item.content && (<p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-relaxed`}> {item.content} </p>)}
                             {/* Tags */}
