@@ -124,12 +124,20 @@ export default function Navigation({ items, siteTitle, enableOnePageMode }: Navi
                           ? `/#${item.target}`
                           : item.href;
 
+                        const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                          if (enableOnePageMode) setActiveHash(`#${item.target}`);
+                          if (item.href === '/blog/' && pathname.startsWith('/blog/')) {
+                            e.preventDefault();
+                            window.dispatchEvent(new CustomEvent('reset-blog-iframe'));
+                          }
+                        };
+
                         return (
                           <Link
                             key={item.title}
                             href={href}
                             prefetch={true}
-                            onClick={() => enableOnePageMode && setActiveHash(`#${item.target}`)}
+                            onClick={handleClick}
                             className={cn(
                               'relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm',
                               isActive
@@ -202,6 +210,14 @@ export default function Navigation({ items, siteTitle, enableOnePageMode }: Navi
                         ? (item.href === '/' ? '/' : `/#${item.target}`)
                         : item.href;
 
+                      const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                        if (enableOnePageMode) setActiveHash(item.href === '/' ? '' : `#${item.target}`);
+                        if (item.href === '/blog/' && pathname.startsWith('/blog/')) {
+                          e.preventDefault();
+                          window.dispatchEvent(new CustomEvent('reset-blog-iframe'));
+                        }
+                      };
+
                       return (
                         <motion.div
                           key={item.title}
@@ -213,7 +229,7 @@ export default function Navigation({ items, siteTitle, enableOnePageMode }: Navi
                             as={Link}
                             href={href}
                             prefetch={true}
-                            onClick={() => enableOnePageMode && setActiveHash(item.href === '/' ? '' : `#${item.target}`)}
+                            onClick={handleClick}
                             className={cn(
                               'block px-3 py-2 rounded-md text-base font-medium transition-all duration-200',
                               isActive

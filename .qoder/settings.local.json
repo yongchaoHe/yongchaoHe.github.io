@@ -3,7 +3,20 @@
     "allow": [
       "Bash(cd /Users/heyongchao/Documents/code/yongchaoHe.github.io && pwd && python3 -m http.server 3000 --bind 127.0.0.1 >/tmp/homepage-server.log 2>&1 &\nsleep 2\ncurl -s http://127.0.0.1:3000/ | head -c 200)",
       "Bash(which chromium google-chrome chrome 2>/dev/null; ls /Applications/Google\\\\ Chrome.app/Contents/MacOS/Google\\\\ Chrome 2>/dev/null; echo \"done\")",
-      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)"
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Bash(ls -la /Users/heyongchao/Documents/code/llmviz)",
+      "Read(//Users/heyongchao/Documents/code/llmviz/**)",
+      "Bash(ls -la /Users/heyongchao/.npm/_npx/aab42732f01924e5/node_modules/playwright 2>/dev/null && ls -la /Users/heyongchao/.npm/_npx/e41f203b7505f1fb/node_modules/playwright 2>/dev/null)",
+      "Read(//Users/heyongchao/.npm/_npx/aab42732f01924e5/node_modules/**)",
+      "Bash(mkdir -p /tmp/pw-test && cd /tmp/pw-test && cat > playwright.config.ts <<'EOF'\nimport { defineConfig } from '@playwright/test';\nexport default defineConfig\\({\n  use: { baseURL: 'http://localhost:3000' },\n}\\);\nEOF\ncat > blog-reset.spec.ts <<'EOF'\nimport { test, expect } from '@playwright/test';\n\ntest\\('Blog nav resets iframe to home', async \\({ page }\\) => {\n  await page.goto\\('/blog/'\\);\n  const iframe = page.frameLocator\\('iframe[title=\"LLM Viz\"]'\\);\n  await iframe.locator\\('.component-card:has-text\\(\"Multi-Head Attention\"\\)'\\).click\\(\\);\n  await iframe.locator\\('text=Multi-Head Attention'\\).first\\(\\).waitFor\\({ timeout: 5000 }\\);\n  await page.screenshot\\({ path: '/tmp/blog-before-reset.png' }\\);\n  await page.locator\\('nav a:has-text\\(\"Blog\"\\)'\\).click\\(\\);\n  await iframe.locator\\('.search-bar'\\).waitFor\\({ timeout: 5000 }\\);\n  await page.screenshot\\({ path: '/tmp/blog-after-reset.png' }\\);\n}\\);\nEOF\nnpx playwright test --reporter=line 2>&1 | tail -30)",
+      "Bash(cd /Users/heyongchao/Documents/code/yongchaoHe.github.io && npx serve -p 3456 . &>/tmp/serve.log & sleep 2 && echo \"serving\")",
+      "Bash(ls ~/.cache/ms-playwright/ 2>/dev/null && echo \"ok\" || echo \"not installed yet\")",
+      "Read(//Users/heyongchao/.cache/**)",
+      "Bash(pkill -f \"npx serve\" 2>/dev/null; sleep 1\ncd /Users/heyongchao/Documents/code/yongchaoHe.github.io && npx serve -p 3456 . &>/tmp/serve.log &\nsleep 2 && echo serving)",
+      "Bash(for f in /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app/assets/*.map; do\n  python3 -c \"\nimport sys, json\nfname = '$f'\nwith open\\(fname\\) as fp:\n    d = json.load\\(fp\\)\nsrcs = d.get\\('sources', []\\)\ncontents = d.get\\('sourcesContent', []\\)\nfor s, c in zip\\(srcs, contents\\):\n    if 'components/' in s and c:\n        print\\('=====', s, '====='\\)\n        print\\(c\\)\n        print\\(\\)\n\" 2>/dev/null\ndone 2>/dev/null > /tmp/all_components.txt\nwc -l /tmp/all_components.txt)",
+      "Bash(cd /Users/heyongchao/Documents/code/llmviz && npm run build 2>&1 | tail -30)",
+      "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 1; echo \"killed\"; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 8; curl -s http://localhost:3000/blog/app/ | head -15)",
+      "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 2; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 15; curl -s -o /dev/null -w \"blog: %{http_code}\\\\n\" http://localhost:3000/blog/; curl -s -o /dev/null -w \"app: %{http_code}\\\\n\" http://localhost:3000/blog/app/)"
     ]
   }
 }
