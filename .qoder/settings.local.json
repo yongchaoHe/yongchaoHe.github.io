@@ -16,7 +16,8 @@
       "Bash(for f in /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app/assets/*.map; do\n  python3 -c \"\nimport sys, json\nfname = '$f'\nwith open\\(fname\\) as fp:\n    d = json.load\\(fp\\)\nsrcs = d.get\\('sources', []\\)\ncontents = d.get\\('sourcesContent', []\\)\nfor s, c in zip\\(srcs, contents\\):\n    if 'components/' in s and c:\n        print\\('=====', s, '====='\\)\n        print\\(c\\)\n        print\\(\\)\n\" 2>/dev/null\ndone 2>/dev/null > /tmp/all_components.txt\nwc -l /tmp/all_components.txt)",
       "Bash(cd /Users/heyongchao/Documents/code/llmviz && npm run build 2>&1 | tail -30)",
       "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 1; echo \"killed\"; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 8; curl -s http://localhost:3000/blog/app/ | head -15)",
-      "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 2; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 15; curl -s -o /dev/null -w \"blog: %{http_code}\\\\n\" http://localhost:3000/blog/; curl -s -o /dev/null -w \"app: %{http_code}\\\\n\" http://localhost:3000/blog/app/)"
+      "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 2; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 15; curl -s -o /dev/null -w \"blog: %{http_code}\\\\n\" http://localhost:3000/blog/; curl -s -o /dev/null -w \"app: %{http_code}\\\\n\" http://localhost:3000/blog/app/)",
+      "Bash(cd /Users/heyongchao/Documents/code/llmviz && npx vite --port 5180 &>/tmp/vite-embed.log &\necho \"started\")"
     ]
   }
 }
