@@ -18,7 +18,10 @@
       "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 1; echo \"killed\"; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 8; curl -s http://localhost:3000/blog/app/ | head -15)",
       "Bash(lsof -ti:3000 | xargs kill 2>/dev/null; sleep 2; nohup npm run dev > /tmp/blog-dev.log 2>&1 & sleep 15; curl -s -o /dev/null -w \"blog: %{http_code}\\\\n\" http://localhost:3000/blog/; curl -s -o /dev/null -w \"app: %{http_code}\\\\n\" http://localhost:3000/blog/app/)",
       "Bash(cd /Users/heyongchao/Documents/code/llmviz && npx vite --port 5180 &>/tmp/vite-embed.log &\necho \"started\")",
-      "Bash(python3 -m http.server 8768 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app &>/tmp/mlp-server.log & echo $!)"
+      "Bash(python3 -m http.server 8768 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app &>/tmp/mlp-server.log & echo $!)",
+      "Bash(lsof -ti:8899 | xargs kill 2>/dev/null; sleep 1; python3 -m http.server 8899 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app > /tmp/blog-server.log 2>&1 & echo $!)",
+      "Bash(kill 57077 && sleep 1 && python3 -m http.server 8899 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app > /tmp/llmviz-server.log 2>&1 & echo $!)",
+      "Bash(lsof -ti:8899 | xargs -r kill -9 2>/dev/null; cd /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app && python3 -m http.server 8899 > /tmp/llmviz-server.log 2>&1 & echo $!)"
     ]
   }
 }
