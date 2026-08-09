@@ -21,7 +21,8 @@
       "Bash(python3 -m http.server 8768 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app &>/tmp/mlp-server.log & echo $!)",
       "Bash(lsof -ti:8899 | xargs kill 2>/dev/null; sleep 1; python3 -m http.server 8899 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app > /tmp/blog-server.log 2>&1 & echo $!)",
       "Bash(kill 57077 && sleep 1 && python3 -m http.server 8899 --directory /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app > /tmp/llmviz-server.log 2>&1 & echo $!)",
-      "Bash(lsof -ti:8899 | xargs -r kill -9 2>/dev/null; cd /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app && python3 -m http.server 8899 > /tmp/llmviz-server.log 2>&1 & echo $!)"
+      "Bash(lsof -ti:8899 | xargs -r kill -9 2>/dev/null; cd /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app && python3 -m http.server 8899 > /tmp/llmviz-server.log 2>&1 & echo $!)",
+      "Bash(cd /Users/heyongchao/Documents/code/yongchaoHe.github.io/blog/app && npx serve -l 8899 . &> /tmp/serve-mamba.log & echo \"Server PID: $!\")"
     ]
   }
 }
